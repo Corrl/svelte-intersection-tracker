@@ -1,42 +1,49 @@
 <script>
+    import VisibilityTracker from "../lib/components/VisibilityTracker.svelte";
     import VisibilityTrackerTitle from "../lib/components/VisibilityTrackerTitle.svelte";
     import VisibilityTrackerItem from "../lib/components/VisibilityTrackerItem.svelte";
-    import {data} from "../lib/data/data.js";
-    import VisibilityTracker from "../lib/components/VisibilityTracker.svelte";
+
+    const sections = [
+        {id: 'Section 1'},
+        {id: 'Section 2', subSections: [{id: 'Section 2a'}, {id: 'Section 2b'}, {id: 'Section 2c'}]},
+        {id: 'Section 3'},
+    ]
+
 </script>
 
-<VisibilityTracker items={data}>
+<div id="sections-wrapper">
+
+<VisibilityTracker items={sections}>
 
     <ul>
         <VisibilityTrackerTitle let:item let:current let:percentage>
             <li class:current-title={current}>
                 <a href="#{item.id}">
-                    <span>{item.title}</span> - {percentage}
+                    {item.id}
                 </a>
             </li>
         </VisibilityTrackerTitle>
     </ul>
 
-    <div id="items">
+    <div id="sections">
         <VisibilityTrackerItem let:item let:current let:percentage>
-            <div id={item.id}
-                 class="item"
-                 class:current-item={current}
+            <section
+                    class:active={current}
             >
-                <h1>
-                    {item.title} - <span style="font-weight: normal">{percentage}</span>
-                </h1>
-                <p>
-                    {item.content}
-                </p>
-            </div>
+                {item.id}
+            </section>
         </VisibilityTrackerItem>
     </div>
 
 </VisibilityTracker>
 
+</div>
 
 <style>
+    #sections-wrapper {
+        display: flex;
+        background-color: #ddd;
+    }
 
     ul {
         list-style: none;
@@ -66,19 +73,27 @@
         white-space: pre-wrap;
     }
 
-    #items {
+    #sections {
         margin-left: calc(var(--main-nav-width) + var(--sub-nav-width));
         width: 700px;
     }
 
-    .item {
-        padding: 2rem 4rem;
-        transition: all 600ms;
-        margin: 3vh 0;
-        border-radius: .5rem;
+    section {
+        background-color: rgba(255, 255, 255, 0.42);
+        margin: 2rem;
+        padding: 5vw;
+        border-radius: 10px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 50vh;
+        transition: .5s ease-in-out;
     }
 
-    .current-item {
-        background: #f0f5f1;
+    .active {
+        color: orangered;
+        background: rgba(255, 200, 0, .25);
     }
 </style>

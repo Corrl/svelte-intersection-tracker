@@ -1,12 +1,14 @@
 <script>
-    import {maxPercentageIndices, percentages} from "../stores/stores.js";
+    import {getContext} from 'svelte'
+    import {key} from '../key.js'
 
-    export let data
+    const {items, percentages, maxPercentageIndices} = getContext(key)
+
 </script>
 
-{#each data as d, index}
+{#each items as item, index}
 
-    <slot {d}
+    <slot {item} {index}
           current={$maxPercentageIndices.includes(index)}
           percentage={$percentages[index] ?? 0}
     />

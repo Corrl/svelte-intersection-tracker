@@ -1,51 +1,51 @@
 <script>
     import {onMount} from 'svelte'
-    import {maxPercentageIndices, percentages} from "../stores/stores.js";
+    import {getContext} from 'svelte'
+    import {key} from '../key.js'
 
-    export let data
+    const {items, percentages, maxPercentageIndices} = getContext(key)
 
-    let items = []
+    let itemWrapperRefs = []
 
     onMount(() => {
+        const fineness = 100
 
         const options = {
-            threshold: Array.from({length: 101}, (_, i) => i / 100)
+            threshold: Array.from({length: fineness}, (_, i) => i / fineness).concat(0.99) // last item would sometimes not trigger with 1
         }
 
         const observer = new IntersectionObserver(handleIntersectionChange, options)
 
-        items.forEach(section => observer.observe(section))
+        itemWrapperRefs.forEach(section => observer.observe(section))
 
         function handleIntersectionChange(entries) {
 
             entries.forEach(entry => {
                 const index = entry.target.dataset.index
                 const percentageOfElement = entry.intersectionRatio
+                console.log(index, entry)
                 const percentageOfRoot = entry.intersectionRect.height / entry.rootBounds.height
-                $percentages[index] = Math.max(percentageOfElement.toFixed(2), percentageOfRoot.toFixed(2))
+                $percentages[index] = Math.max(round(percentageOfElement), round(percentageOfRoot))
             })
         }
 
         return () => observer.disconnect()
     })
 
+    function round(num) {
+        return Math.ceil(num * 100) / 100
+    }
+
 </script>
 
-{#each data as d, index}
-    <div data-index={index}
-         bind:this={items[index]}
+{#each items as item, index}
+    <div class="svt-item-wrapper"
+         data-index={index}
+         bind:this={itemWrapperRefs[index]}
     >
-        <slot {d}
+        <slot {item} {index}
               current={$maxPercentageIndices.includes(index)}
               percentage={$percentages[index] ?? 0}
         />
     </div>
 {/each}
-
-<style>
-    div {
-        display: flex;
-        flex-direction: column;
-        border-bottom: 2px solid lightgrey;
-    }
-</style>
