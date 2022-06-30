@@ -69,6 +69,6 @@
         transition: background 600ms;
     }
     .current-item {
-        background: #f0f5f0;
+        background: #f0f5f1;
     }
 </style>
