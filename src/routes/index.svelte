@@ -1,3 +1,4 @@
+<!--suppress HtmlUnknownAttribute -->
 <script>
     import VisibilityTrackerTitle from "../lib/components/VisibilityTrackerTitle.svelte";
     import VisibilityTrackerItem from "../lib/components/VisibilityTrackerItem.svelte";
@@ -9,7 +10,8 @@
 
     <ul>
         <VisibilityTrackerTitle let:item let:current let:percentage>
-            <li class:current-title={current}>
+            <li class:current-title={current}
+            style:font-weight="{percentage*400+400}">
                 <a href="#{item.id}">
                     <span>{item.title}</span> - {percentage}
                 </a>
@@ -44,9 +46,9 @@
         top: 0;
         left: 0;
         margin: 0;
+        margin-left: var(--main-nav-width);
         width: var(--sub-nav-width);
         padding: 2rem;
-        margin-left: var(--main-nav-width);
     }
 
     li {

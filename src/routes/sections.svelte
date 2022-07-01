@@ -1,7 +1,7 @@
 <script>
-    import VisibilityTracker from "../lib/components/VisibilityTracker.svelte";
-    import VisibilityTrackerTitle from "../lib/components/VisibilityTrackerTitle.svelte";
-    import VisibilityTrackerItem from "../lib/components/VisibilityTrackerItem.svelte";
+    import UniversalVisibilityTracker from "../lib/components/UniversalVisibilityTracker.svelte";
+    import UniversalVisibilityTrackerLink from "../lib/components/UniversalVisibilityTrackerLink.svelte";
+    import UniversalVisibilityTrackerItem from "../lib/components/UniversalVisibilityTrackerItem.svelte";
 
     const sections = [
         {id: 'Section 1'},
@@ -13,29 +13,68 @@
 
 <div id="sections-wrapper">
 
-<VisibilityTracker items={sections}>
+    <UniversalVisibilityTracker>
 
-    <ul>
-        <VisibilityTrackerTitle let:item let:current let:percentage>
-            <li class:current-title={current}>
-                <a href="#{item.id}">
-                    {item.id}
-                </a>
-            </li>
-        </VisibilityTrackerTitle>
-    </ul>
+        <div id="links">
+            <ul>
+                {#each sections as section}
+                    <UniversalVisibilityTrackerLink id={section.id} let:current>
 
-    <div id="sections">
-        <VisibilityTrackerItem let:item let:current let:percentage>
-            <section
-                    class:active={current}
-            >
-                {item.id}
-            </section>
-        </VisibilityTrackerItem>
-    </div>
+                        <li class:current-link={current}>
+                            <a href="#{section.id}">
+                                {section.id}
+                            </a>
 
-</VisibilityTracker>
+                            {#if section.subSections}
+                                <ul>
+                                    {#each section.subSections as subsection}
+                                        <UniversalVisibilityTrackerLink
+                                                id={subsection.id}
+                                                group="1"
+                                                let:current={currentSubsection}
+                                        >
+                                            <li class:current-sublink={currentSubsection}>
+                                                <a href="#{subsection.id}">
+                                                    {subsection.id}
+                                                </a>
+                                            </li>
+                                        </UniversalVisibilityTrackerLink>
+                                    {/each}
+                                </ul>
+                            {/if}
+                        </li>
+
+                    </UniversalVisibilityTrackerLink>
+                {/each}
+            </ul>
+        </div>
+
+        <div id="sections">
+            {#each sections as section}
+                <UniversalVisibilityTrackerItem id={section.id}
+                                                let:isIntersecting let:current let:percentage
+                >
+                    <section class:current-section={current}
+                    >
+                        <h1>{section.id}</h1>
+                        {#if section.subSections}
+                            {#each section.subSections as subsection}
+                                <UniversalVisibilityTrackerItem id={subsection.id} group="1"
+                                                                let:current={currentSubsection}
+                                >
+                                    <div class="subsection" class:current-subsection={currentSubsection}
+                                    >
+                                        <h2>{subsection.id}</h2>
+                                    </div>
+                                </UniversalVisibilityTrackerItem>
+                            {/each}
+                        {/if}
+                    </section>
+                </UniversalVisibilityTrackerItem>
+            {/each}
+        </div>
+
+    </UniversalVisibilityTracker>
 
 </div>
 
@@ -45,15 +84,19 @@
         background-color: #ddd;
     }
 
-    ul {
-        list-style: none;
+    #links {
         position: fixed;
         top: 0;
         left: 0;
-        margin: 0;
-        width: var(--sub-nav-width);
+        margin: 0 0 0 var(--main-nav-width);
         padding: 2rem;
-        margin-left: var(--main-nav-width);
+        width: var(--sub-nav-width);
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
     }
 
     li {
@@ -61,16 +104,17 @@
         padding: .5rem;
     }
 
-    .current-title {
+    ul ul {
+        position: relative;
+    }
+
+    .current-link,
+    .current-link .current-sublink{
         border-left: 5px solid black;
     }
 
     a {
         color: inherit;
-    }
-
-    p {
-        white-space: pre-wrap;
     }
 
     #sections {
@@ -79,21 +123,31 @@
     }
 
     section {
-        background-color: rgba(255, 255, 255, 0.42);
-        margin: 2rem;
-        padding: 5vw;
-        border-radius: 10px;
         position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 50vh;
-        transition: .5s ease-in-out;
+        margin: 2rem;
+        padding: 5rem 3rem;
+        min-height: 70vh;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.42);
+    }
+    section, .subsection {
+        border-radius: 2rem;
+        transition: all .5s ease-in-out;
     }
 
-    .active {
+    .subsection {
+        padding-top: 8rem;
+        min-height: 40rem;
+    }
+
+    .current-section {
         color: orangered;
         background: rgba(255, 200, 0, .25);
+    }
+    .current-section .current-subsection {
+        color: orangered;
+        border: 2px solid orangered;
+        text-decoration: underline;
+        background: rgba(230, 195, 69, 0.3);
     }
 </style>

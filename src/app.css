@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400..800&display=swap');
+:root {
+    --main-nav-width: 11rem;
+    --sub-nav-width: 12rem;
+}
 
 html {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     scroll-behavior: smooth;
     /*scroll-padding-top: 40px;*/
 }
@@ -10,9 +13,6 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100%;
-
-    --main-nav-width: 10rem;
-    --sub-nav-width: 200px;
 }
 
 * {

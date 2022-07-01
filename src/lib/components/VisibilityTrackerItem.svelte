@@ -23,7 +23,6 @@
             entries.forEach(entry => {
                 const index = entry.target.dataset.index
                 const percentageOfElement = entry.intersectionRatio
-                console.log(index, entry)
                 const percentageOfRoot = entry.intersectionRect.height / entry.rootBounds.height
                 $percentages[index] = Math.max(round(percentageOfElement), round(percentageOfRoot))
             })

@@ -1,16 +1,28 @@
 <script>
     import '../app.css'
     import {base} from '$app/paths'
+    import {page} from '$app/stores';
+
+    const links = [
+        ['/', 'Basic'],
+        ['/sections/', 'Sections'],
+        ['/universal/', 'Universal']
+
+    ]
+
 </script>
 
 <nav>
     <ul>
-        <li>
-            <a href="{base}/">Basic</a>
-        </li>
-        <li>
-            <a href="{base}/sections">Sections</a>
-        </li>
+        {#each links as [href, text]}
+            <li>
+                <a href="{base}{href}"
+                   class:open={$page.url.pathname === href}
+                >
+                    {text}
+                </a>
+            </li>
+        {/each}
     </ul>
 </nav>
 
@@ -27,14 +39,32 @@
         background: #ededed;
     }
 
-    a {
-        color: inherit;
-        text-decoration: none;
-        font-weight: bold;
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     li {
-        margin: .8rem 0;
+        margin: .4rem 0;
+
     }
 
+    a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        font-weight: bold;
+        padding: .4rem .6rem;
+        border-radius: .2rem;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .open {
+        background: black;
+        color: white;
+    }
 </style>

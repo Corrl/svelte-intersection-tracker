@@ -77,4 +77,14 @@ To get a feeling for how thresholds work, try scrolling the box below around. Ea
         title: 'Title 6',
         content: `Each entry in the list of thresholds is an IntersectionObserverEntry object describing one threshold that was crossed; that is, each entry describes how much of a given element is intersecting with the root element, whether or not the element is considered to be intersecting or not, and the direction in which the transition occurred.`
     },
+
+    {
+        id: 'title7',
+        title: 'Title 7',
+        content: `ceives a list of IntersectionObserverEntry objects, one for each observed target which has had the degree to which it intersects the root change such that the amount exposed crosses over one of the thresholds, in either direction.
+
+You can see if the target currently intersects the root by looking at the entry's isIntersecting property; if its value is true, the target is at least partially intersecting the root element or document. This lets you determine whether the entry represents a transition from the elements intersecting to no longer intersecting or a transition from not intersecting to intersecting.
+
+Note that it's possible to have a non-zero inter.`
+    },
 ]
