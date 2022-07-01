@@ -17,7 +17,7 @@
         {#each links as [href, text]}
             <li>
                 <a href="{base}{href}"
-                   class:open={$page.url.pathname === href}
+                   class:open={`${base}${$page.url.pathname}` === href}
                 >
                     {text}
                 </a>
