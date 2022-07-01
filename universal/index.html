@@ -11,13 +11,14 @@
 
 		<meta http-equiv="content-security-policy" content="">
 	<link rel="stylesheet" href="/svelte-visibility-tracker/_app/immutable/assets/pages/__layout.svelte-a78811b1.css">
-	<link rel="stylesheet" href="/svelte-visibility-tracker/_app/immutable/assets/pages/index.svelte-e64be0a7.css">
+	<link rel="stylesheet" href="/svelte-visibility-tracker/_app/immutable/assets/pages/universal.svelte-0fd8a939.css">
 	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/start-81e54b36.js">
 	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/chunks/index-0bb340c0.js">
 	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/chunks/index-e99f4614.js">
 	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/chunks/paths-396f020f.js">
 	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/pages/__layout.svelte-9924b32e.js">
-	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/pages/index.svelte-58ee9111.js">
+	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/pages/universal.svelte-ae442c81.js">
+	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/chunks/UniversalVisibilityTrackerItem-f758db34.js">
 	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/chunks/key-a52d9279.js">
 	<link rel="modulepreload" href="/svelte-visibility-tracker/_app/immutable/chunks/data-776a20d0.js">
 	</head>
@@ -34,17 +35,50 @@
 
 
 
+<ul class="svelte-18yz2h2">
 
 
+    <li class="svelte-18yz2h2"><a href="#title1" class="svelte-18yz2h2">Title 1</a></li>
+            
 
-<ul class="svelte-1jxxs32"><li class="svelte-1jxxs32" style="font-weight: 400;"><a href="#title1" class="svelte-1jxxs32"><span>Title 1</span> - 0</a></li><li class="svelte-1jxxs32" style="font-weight: 400;"><a href="#title2" class="svelte-1jxxs32"><span>Title 2</span> - 0</a></li><li class="svelte-1jxxs32" style="font-weight: 400;"><a href="#title3" class="svelte-1jxxs32"><span>Title 3</span> - 0</a></li><li class="svelte-1jxxs32" style="font-weight: 400;"><a href="#title4" class="svelte-1jxxs32"><span>Title 4</span> - 0</a></li><li class="svelte-1jxxs32" style="font-weight: 400;"><a href="#title5" class="svelte-1jxxs32"><span>Title 5</span> - 0</a></li><li class="svelte-1jxxs32" style="font-weight: 400;"><a href="#title6" class="svelte-1jxxs32"><span>Title 6</span> - 0</a></li><li class="svelte-1jxxs32" style="font-weight: 400;"><a href="#title7" class="svelte-1jxxs32"><span>Title 7</span> - 0</a></li></ul>
 
-    <div id="items" class="svelte-1jxxs32"><div class="svt-item-wrapper" data-index="0"><div id="title1" class="item svelte-1jxxs32"><h1>Title 1 - <span style="font-weight: normal">0</span></h1>
-                <p class="svelte-1jxxs32">Either a single number or an array of numbers which indicate at what percentage of the target&#39;s visibility the observer&#39;s callback should be executed. If you only want to detect when visibility passes the 50% mark, you can use a value of 0.5. If you want the callback to run every time visibility passes another 25%, you would specify the array [0, 0.25, 0.5, 0.75, 1].
+    <li class="svelte-18yz2h2"><a href="#title2" class="svelte-18yz2h2">Title 2</a></li>
+            
 
- The default is 0 (meaning as soon as even one pixel is visible, the callback will be run). A value of 1.0 means that the threshold isn&#39;t considered passed until every pixel is visible. Either a single number or an array of numbers which indicate at what percentage of the target&#39;s visibility the observer&#39;s callback should be executed. If you only want to detect when visibility passes the 50% mark, you can use a value of 0.5. If you want the callback to run every time visibility passes another 25%, you would specify the array [0, 0.25, 0.5, 0.75, 1]. The default is 0 (meaning as soon as even one pixel is visible, the callback will be run). A value of 1.0 means that the threshold isn&#39;t considered passed until every pixel is visible.</p></div>
-    </div><div class="svt-item-wrapper" data-index="1"><div id="title2" class="item svelte-1jxxs32"><h1>Title 2 - <span style="font-weight: normal">0</span></h1>
-                <p class="svelte-1jxxs32">Rather than reporting every infinitesimal change in how much a target element is visible, the Intersection Observer API uses thresholds. When you create an observer, you can provide one or more numeric values representing percentages of the target element which are visible. Then, the API only reports changes to visibility which cross these thresholds.
+
+    <li class="svelte-18yz2h2"><a href="#title3" class="svelte-18yz2h2">Title 3</a></li>
+            
+
+
+    <li class="svelte-18yz2h2"><a href="#title4" class="svelte-18yz2h2">Title 4</a></li>
+            
+
+
+    <li class="svelte-18yz2h2"><a href="#title5" class="svelte-18yz2h2">Title 5</a></li>
+            
+
+
+    <li class="svelte-18yz2h2"><a href="#title6" class="svelte-18yz2h2">Title 6</a></li>
+            
+
+
+    <li class="svelte-18yz2h2"><a href="#title7" class="svelte-18yz2h2">Title 7</a></li>
+            </ul>
+
+
+    <div id="items" class="svelte-18yz2h2">
+
+
+<div id="title1" data-group="0"><div class="item svelte-18yz2h2"><h1>Title 1 - <span style="font-weight: normal">0</span></h1>
+                    <p class="svelte-18yz2h2">Either a single number or an array of numbers which indicate at what percentage of the target&#39;s visibility the observer&#39;s callback should be executed. If you only want to detect when visibility passes the 50% mark, you can use a value of 0.5. If you want the callback to run every time visibility passes another 25%, you would specify the array [0, 0.25, 0.5, 0.75, 1].
+
+ The default is 0 (meaning as soon as even one pixel is visible, the callback will be run). A value of 1.0 means that the threshold isn&#39;t considered passed until every pixel is visible. Either a single number or an array of numbers which indicate at what percentage of the target&#39;s visibility the observer&#39;s callback should be executed. If you only want to detect when visibility passes the 50% mark, you can use a value of 0.5. If you want the callback to run every time visibility passes another 25%, you would specify the array [0, 0.25, 0.5, 0.75, 1]. The default is 0 (meaning as soon as even one pixel is visible, the callback will be run). A value of 1.0 means that the threshold isn&#39;t considered passed until every pixel is visible.
+                    </p></div>
+            </div>
+
+
+<div id="title2" data-group="0"><div class="item svelte-18yz2h2"><h1>Title 2 - <span style="font-weight: normal">0</span></h1>
+                    <p class="svelte-18yz2h2">Rather than reporting every infinitesimal change in how much a target element is visible, the Intersection Observer API uses thresholds. When you create an observer, you can provide one or more numeric values representing percentages of the target element which are visible. Then, the API only reports changes to visibility which cross these thresholds.
 
 For example, if you want to be informed every time a target&#39;s visibility passes backward or forward through each 25% mark, you would specify the array [0, 0.25, 0.5, 0.75, 1] as the list of thresholds when creating the observer.
 
@@ -59,11 +93,19 @@ To get a feeling for how thresholds work, try scrolling the box below around. Ea
 The first box has a threshold for each percentage point of visibility; that is, the IntersectionObserver.thresholds array is [0.00, 0.01, 0.02, ..., 0.99, 1.00].
 The second box has a single threshold, at the 50% mark.
 The third box has thresholds every 10% of visibility (0%, 10%, 20%, etc.).
-The last box has thresholds each 25%.</p></div>
-    </div><div class="svt-item-wrapper" data-index="2"><div id="title3" class="item svelte-1jxxs32"><h1>Title 3 - <span style="font-weight: normal">0</span></h1>
-                <p class="svelte-1jxxs32">Historically, detecting visibility of an element, or the relative visibility of two elements in relation to each other, has been a difficult task for which solutions have been unreliable and prone to causing the browser and the sites the user is accessing to become sluggish. As the web has matured, the need for this kind of information has grown. Intersection information is needed for many reasons, such as: Each entry in the list of thresholds is an IntersectionObserverEntry object describing one threshold that was crossed; that is, each entry describes how much of a given element is intersecting with the root element, whether or not the element is considered to be intersecting or not, and the direction in which the transition occurred.</p></div>
-    </div><div class="svt-item-wrapper" data-index="3"><div id="title4" class="item svelte-1jxxs32"><h1>Title 4 - <span style="font-weight: normal">0</span></h1>
-                <p class="svelte-1jxxs32">For each IntersectionObserverEntry in the list entries, we look to see if the entry&#39;s intersectionRatio is going up; if it is, we set the target&#39;s background-color to the string in increasingColor (remember, it&#39;s &quot;rgba(40, 40, 190, ratio)&quot;), replaces the word &quot;ratio&quot; with the entry&#39;s intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color&#39;s alpha value goes down with it, resulting in an element that&#39;s more transparent.
+The last box has thresholds each 25%.
+                    </p></div>
+            </div>
+
+
+<div id="title3" data-group="0"><div class="item svelte-18yz2h2"><h1>Title 3 - <span style="font-weight: normal">0</span></h1>
+                    <p class="svelte-18yz2h2">Historically, detecting visibility of an element, or the relative visibility of two elements in relation to each other, has been a difficult task for which solutions have been unreliable and prone to causing the browser and the sites the user is accessing to become sluggish. As the web has matured, the need for this kind of information has grown. Intersection information is needed for many reasons, such as: Each entry in the list of thresholds is an IntersectionObserverEntry object describing one threshold that was crossed; that is, each entry describes how much of a given element is intersecting with the root element, whether or not the element is considered to be intersecting or not, and the direction in which the transition occurred.
+                    </p></div>
+            </div>
+
+
+<div id="title4" data-group="0"><div class="item svelte-18yz2h2"><h1>Title 4 - <span style="font-weight: normal">0</span></h1>
+                    <p class="svelte-18yz2h2">For each IntersectionObserverEntry in the list entries, we look to see if the entry&#39;s intersectionRatio is going up; if it is, we set the target&#39;s background-color to the string in increasingColor (remember, it&#39;s &quot;rgba(40, 40, 190, ratio)&quot;), replaces the word &quot;ratio&quot; with the entry&#39;s intersectionRatio. The result: not only does the color get changed, but the transparency of the target element changes, too; as the intersection ratio goes down, the background color&#39;s alpha value goes down with it, resulting in an element that&#39;s more transparent.
 
 Similarly, if the intersectionRatio is going down, we use the string decreasingColor and replace the word &quot;ratio&quot; in that with the intersectionRatio before setting the target element&#39;s background-color.
 
@@ -87,9 +129,13 @@ Finally, in order to track whether the intersection ratio is going up or down, w
 
 Similarly, if the intersectionRatio is going down, we use the string decreasingColor and replace the word &quot;ratio&quot; in that with the intersectionRatio before setting the target element&#39;s background-color.
 
-Finally, in order to track whether the intersection ratio is going up or down, we remember the current ratio in the variable prevRatio.</p></div>
-    </div><div class="svt-item-wrapper" data-index="4"><div id="title5" class="item svelte-1jxxs32"><h1>Title 5 - <span style="font-weight: normal">0</span></h1>
-                <p class="svelte-1jxxs32">Rather than reporting every infinitesimal change in how much a target element is visible, the Intersection Observer API uses thresholds. When you create an observer, you can provide one or more numeric values representing percentages of the target element which are visible. Then, the API only reports changes to visibility which cross these thresholds.
+Finally, in order to track whether the intersection ratio is going up or down, we remember the current ratio in the variable prevRatio.
+                    </p></div>
+            </div>
+
+
+<div id="title5" data-group="0"><div class="item svelte-18yz2h2"><h1>Title 5 - <span style="font-weight: normal">0</span></h1>
+                    <p class="svelte-18yz2h2">Rather than reporting every infinitesimal change in how much a target element is visible, the Intersection Observer API uses thresholds. When you create an observer, you can provide one or more numeric values representing percentages of the target element which are visible. Then, the API only reports changes to visibility which cross these thresholds.
 
 For example, if you want to be informed every time a target&#39;s visibility passes backward or forward through each 25% mark, you would specify the array [0, 0.25, 0.5, 0.75, 1] as the list of thresholds when creating the observer.
 
@@ -99,22 +145,31 @@ You can see if the target currently intersects the root by looking at the entry&
 
 Note that it&#39;s possible to have a non-zero intersection rectangle, which can happen if the intersection is exactly along the boundary between the two or the area of boundingClientRect is zero. This state of the target and root sharing a boundary line is not considered enough to be considered transitioning into an intersecting state.
 
-To get a feeling for how thresholds work, try scrolling the box below around. Each colored box within it displays the percentage of itself that&#39;s visible in all four of its corners, so you can see these ratios change over time as you scroll the container. Each box has a different set of thresholds.</p></div>
-    </div><div class="svt-item-wrapper" data-index="5"><div id="title6" class="item svelte-1jxxs32"><h1>Title 6 - <span style="font-weight: normal">0</span></h1>
-                <p class="svelte-1jxxs32">Each entry in the list of thresholds is an IntersectionObserverEntry object describing one threshold that was crossed; that is, each entry describes how much of a given element is intersecting with the root element, whether or not the element is considered to be intersecting or not, and the direction in which the transition occurred.</p></div>
-    </div><div class="svt-item-wrapper" data-index="6"><div id="title7" class="item svelte-1jxxs32"><h1>Title 7 - <span style="font-weight: normal">0</span></h1>
-                <p class="svelte-1jxxs32">ceives a list of IntersectionObserverEntry objects, one for each observed target which has had the degree to which it intersects the root change such that the amount exposed crosses over one of the thresholds, in either direction.
+To get a feeling for how thresholds work, try scrolling the box below around. Each colored box within it displays the percentage of itself that&#39;s visible in all four of its corners, so you can see these ratios change over time as you scroll the container. Each box has a different set of thresholds.
+                    </p></div>
+            </div>
+
+
+<div id="title6" data-group="0"><div class="item svelte-18yz2h2"><h1>Title 6 - <span style="font-weight: normal">0</span></h1>
+                    <p class="svelte-18yz2h2">Each entry in the list of thresholds is an IntersectionObserverEntry object describing one threshold that was crossed; that is, each entry describes how much of a given element is intersecting with the root element, whether or not the element is considered to be intersecting or not, and the direction in which the transition occurred.
+                    </p></div>
+            </div>
+
+
+<div id="title7" data-group="0"><div class="item svelte-18yz2h2"><h1>Title 7 - <span style="font-weight: normal">0</span></h1>
+                    <p class="svelte-18yz2h2">ceives a list of IntersectionObserverEntry objects, one for each observed target which has had the degree to which it intersects the root change such that the amount exposed crosses over one of the thresholds, in either direction.
 
 You can see if the target currently intersects the root by looking at the entry&#39;s isIntersecting property; if its value is true, the target is at least partially intersecting the root element or document. This lets you determine whether the entry represents a transition from the elements intersecting to no longer intersecting or a transition from not intersecting to intersecting.
 
-Note that it&#39;s possible to have a non-zero inter.</p></div>
-    </div></div>
+Note that it&#39;s possible to have a non-zero inter.
+                    </p></div>
+            </div></div>
 
 
-		<script type="module" data-sveltekit-hydrate="12rqcm">
+		<script type="module" data-sveltekit-hydrate="1e75tw7">
 		import { start } from "/svelte-visibility-tracker/_app/immutable/start-81e54b36.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="12rqcm"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1e75tw7"]').parentNode,
 			paths: {"base":"/svelte-visibility-tracker","assets":"/svelte-visibility-tracker"},
 			session: {},
 			route: true,
@@ -123,9 +178,9 @@ Note that it&#39;s possible to have a non-zero inter.</p></div>
 			hydrate: {
 				status: 200,
 				error: null,
-				nodes: [0, 2],
+				nodes: [0, 4],
 				params: {},
-				routeId: ""
+				routeId: "universal"
 			}
 		});
 	</script></div>
