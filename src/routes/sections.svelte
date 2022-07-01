@@ -89,32 +89,41 @@
         top: 0;
         left: 0;
         margin: 0 0 0 var(--main-nav-width);
-        padding: 2rem;
         width: var(--sub-nav-width);
     }
 
     ul {
         list-style: none;
-        margin: 0;
-        padding: 0;
+        margin: 2rem auto 0;
+        padding: .3rem .2rem;
+        max-width: min-content;
+        white-space: nowrap;
+        background: black;
+        color: white;
+        border-radius: .3rem;
+        font-weight: bold;
     }
 
     li {
-        border-left: 5px solid #dddddd;
         padding: .5rem;
     }
 
     ul ul {
         position: relative;
+        margin: revert;
     }
 
     .current-link,
     .current-link .current-sublink{
-        border-left: 5px solid black;
+        color: orangered;
+    }
+    .current-link .current-sublink {
+        box-shadow: -2px 0 0 orangered;
     }
 
     a {
         color: inherit;
+        text-decoration: none;
     }
 
     #sections {
@@ -124,7 +133,7 @@
 
     section {
         position: relative;
-        margin: 2rem;
+        margin: 2rem 0;
         padding: 5rem 3rem;
         min-height: 70vh;
         text-align: center;
@@ -132,7 +141,7 @@
     }
     section, .subsection {
         border-radius: 2rem;
-        transition: all .5s ease-in-out;
+        transition: all 300ms ease-in-out;
     }
 
     .subsection {
