@@ -5,20 +5,23 @@
     import {data} from "../lib/data/data.js";
 </script>
 
-
 <IntersectionTracker>
 
     <ul>
         {#each data as d}
             <IntersectionTrackerLink
                     id={d.id}
-                    let:isIntersecting
                     let:percentage
                     let:current
             >
                 <li
-                        class:current-link={current}
+                        style:color="hsl({percentage*70+155}, 50%, 50%)"
                 >
+                    <div class="link-marker"
+                         class:current-link={current}
+                    >
+                        ★
+                    </div>
                     <a href="#{d.id}">{d.title}</a>
                 </li>
             </IntersectionTrackerLink>
@@ -29,19 +32,14 @@
         {#each data as d}
             <IntersectionTrackerItem
                     id={d.id}
-                    let:isIntersecting
                     let:percentage
-                    let:current
             >
-                <div class="item"
-                     class:current-item={current}
-                >
-                    <h1>
+                <div class="item">
+                    <h1
+                            style:color="hsl({percentage*90+166}, 50%, 50%)"
+                    >
                         {d.title}
                     </h1>
-                    <h2>isIntersecting: <span>{isIntersecting}</span></h2>
-                    <h2>percentage: <span>{percentage}</span></h2>
-                    <h2>current: <span>{current}</span></h2>
                     <p>
                         {d.content}
                     </p>
@@ -54,6 +52,8 @@
 
 
 <style>
+
+
     ul {
         list-style: none;
         position: fixed;
@@ -65,16 +65,31 @@
     }
 
     li {
-        border-left: 5px solid #dddddd;
-        padding: .5rem;
+        display: flex;
+        min-height: 2.8rem;
+        font-weight: 800;
+        font-size: 1.4rem;
+        transition: all 400ms;
+    }
+
+    .link-marker {
+        width: 1.6rem;
+        font-size: 0;
+        transition: font-size 400ms;
     }
 
     .current-link {
-        border-left: 5px solid black;
+        font-size: 1em;
     }
 
     a {
         color: inherit;
+        text-decoration: none;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+        font-weight: 800;
     }
 
     p {
@@ -88,21 +103,9 @@
 
     .item {
         padding: 2rem 4rem;
-        transition: all 600ms;
         margin: 3vh 0;
         border-radius: .5rem;
-    }
-
-    .current-item {
-        background: #f0f5f1;
-    }
-
-    h2 {
-        margin: 0 0 .5rem 0;
-        font-size: 1.1rem;
-    }
-    h2 span {
-        color: teal;
+        background: white;
     }
 
 </style>

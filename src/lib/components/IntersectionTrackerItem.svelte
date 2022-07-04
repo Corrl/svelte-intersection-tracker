@@ -20,6 +20,7 @@
 <div {id}
      data-group={group}
      bind:this={item}
+     class="svelte-intersection-tracker-item"
 >
     <slot {isIntersecting} {percentage} {current}
     />

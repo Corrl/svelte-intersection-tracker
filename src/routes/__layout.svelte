@@ -5,6 +5,8 @@
 
     const links = [
         ['/', 'Basic'],
+        ['/percentage1/', 'Percentage 1'],
+        ['/percentage2/', 'Percentage 2'],
         ['/subsections/', 'SubSections'],
     ]
 

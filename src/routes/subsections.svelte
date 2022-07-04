@@ -1,7 +1,7 @@
 <script>
-    import VisibilityTracker from "../lib/components/VisibilityTracker.svelte";
-    import VisibilityTrackerLink from "../lib/components/VisibilityTrackerLink.svelte";
-    import VisibilityTrackerItem from "../lib/components/VisibilityTrackerItem.svelte";
+    import IntersectionTracker from "../lib/components/IntersectionTracker.svelte";
+    import IntersectionTrackerLink from "../lib/components/IntersectionTrackerLink.svelte";
+    import IntersectionTrackerItem from "../lib/components/IntersectionTrackerItem.svelte";
 
     const sections = [
         {id: 'Section 1'},
@@ -11,14 +11,13 @@
 
 </script>
 
-<div id="sections-wrapper">
 
-    <VisibilityTracker>
+    <IntersectionTracker>
 
         <div id="links">
             <ul>
                 {#each sections as section}
-                    <VisibilityTrackerLink id={section.id} let:current>
+                    <IntersectionTrackerLink id={section.id} let:current>
 
                         <li class:current-link={current}>
                             <a href="#{section.id}">
@@ -28,7 +27,7 @@
                             {#if section.subSections}
                                 <ul>
                                     {#each section.subSections as subsection}
-                                        <VisibilityTrackerLink
+                                        <IntersectionTrackerLink
                                                 id={subsection.id}
                                                 group="1"
                                                 let:current={currentSubsection}
@@ -38,51 +37,47 @@
                                                     {subsection.id}
                                                 </a>
                                             </li>
-                                        </VisibilityTrackerLink>
+                                        </IntersectionTrackerLink>
                                     {/each}
                                 </ul>
                             {/if}
                         </li>
 
-                    </VisibilityTrackerLink>
+                    </IntersectionTrackerLink>
                 {/each}
             </ul>
         </div>
 
         <div id="sections">
             {#each sections as section}
-                <VisibilityTrackerItem id={section.id}
-                                                let:isIntersecting let:current let:percentage
+                <IntersectionTrackerItem id={section.id}
+                                         let:isIntersecting let:current let:percentage
                 >
                     <section class:current-section={current}
                     >
                         <h1>{section.id}</h1>
                         {#if section.subSections}
                             {#each section.subSections as subsection}
-                                <VisibilityTrackerItem id={subsection.id} group="1"
-                                                                let:current={currentSubsection}
+                                <IntersectionTrackerItem
+                                        id={subsection.id}
+                                        group="1"
+                                        let:current={currentSubsection}
                                 >
-                                    <div class="subsection" class:current-subsection={currentSubsection}
-                                    >
+                                    <div class="subsection" class:current-subsection={currentSubsection}>
                                         <h2>{subsection.id}</h2>
                                     </div>
-                                </VisibilityTrackerItem>
+                                </IntersectionTrackerItem>
                             {/each}
                         {/if}
                     </section>
-                </VisibilityTrackerItem>
+                </IntersectionTrackerItem>
             {/each}
         </div>
 
-    </VisibilityTracker>
+    </IntersectionTracker>
 
-</div>
 
 <style>
-    #sections-wrapper {
-        display: flex;
-        background-color: #ddd;
-    }
 
     #links {
         position: fixed;
@@ -114,9 +109,10 @@
     }
 
     .current-link,
-    .current-link .current-sublink{
+    .current-link .current-sublink {
         color: orangered;
     }
+
     .current-link .current-sublink {
         box-shadow: -2px 0 0 orangered;
     }
@@ -137,8 +133,9 @@
         padding: 5rem 3rem;
         min-height: 70vh;
         text-align: center;
-        background-color: rgba(255, 255, 255, 0.42);
+        background: rgba(0, 0, 0, .03);
     }
+
     section, .subsection {
         border-radius: 2rem;
         transition: all 300ms ease-in-out;
@@ -153,10 +150,11 @@
         color: orangered;
         background: rgba(255, 200, 0, .25);
     }
+
     .current-section .current-subsection {
         color: orangered;
-        border: 2px solid orangered;
+        /*border: 2px solid orangered;*/
         text-decoration: underline;
-        background: rgba(230, 195, 69, 0.3);
+        background: rgba(255, 200, 0, .25);
     }
 </style>

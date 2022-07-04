@@ -52,6 +52,7 @@
             threshold: options.threshold ?? Array.from({length: fineness}, (_, i) => i / fineness).concat(1) // last item sometimes doesn't trigger with 1? >> better .99?
         }
 
+        console.log(fullOptions)
         function setRoot(root) {
             return root instanceof Element && root
                 || typeof root === 'string' && document.getElementById(root)
