@@ -1,7 +1,7 @@
 <script>
-    import UniversalVisibilityTracker from "../lib/components/UniversalVisibilityTracker.svelte";
-    import UniversalVisibilityTrackerLink from "../lib/components/UniversalVisibilityTrackerLink.svelte";
-    import UniversalVisibilityTrackerItem from "../lib/components/UniversalVisibilityTrackerItem.svelte";
+    import VisibilityTracker from "../lib/components/VisibilityTracker.svelte";
+    import VisibilityTrackerLink from "../lib/components/VisibilityTrackerLink.svelte";
+    import VisibilityTrackerItem from "../lib/components/VisibilityTrackerItem.svelte";
 
     const sections = [
         {id: 'Section 1'},
@@ -13,12 +13,12 @@
 
 <div id="sections-wrapper">
 
-    <UniversalVisibilityTracker>
+    <VisibilityTracker>
 
         <div id="links">
             <ul>
                 {#each sections as section}
-                    <UniversalVisibilityTrackerLink id={section.id} let:current>
+                    <VisibilityTrackerLink id={section.id} let:current>
 
                         <li class:current-link={current}>
                             <a href="#{section.id}">
@@ -28,7 +28,7 @@
                             {#if section.subSections}
                                 <ul>
                                     {#each section.subSections as subsection}
-                                        <UniversalVisibilityTrackerLink
+                                        <VisibilityTrackerLink
                                                 id={subsection.id}
                                                 group="1"
                                                 let:current={currentSubsection}
@@ -38,20 +38,20 @@
                                                     {subsection.id}
                                                 </a>
                                             </li>
-                                        </UniversalVisibilityTrackerLink>
+                                        </VisibilityTrackerLink>
                                     {/each}
                                 </ul>
                             {/if}
                         </li>
 
-                    </UniversalVisibilityTrackerLink>
+                    </VisibilityTrackerLink>
                 {/each}
             </ul>
         </div>
 
         <div id="sections">
             {#each sections as section}
-                <UniversalVisibilityTrackerItem id={section.id}
+                <VisibilityTrackerItem id={section.id}
                                                 let:isIntersecting let:current let:percentage
                 >
                     <section class:current-section={current}
@@ -59,22 +59,22 @@
                         <h1>{section.id}</h1>
                         {#if section.subSections}
                             {#each section.subSections as subsection}
-                                <UniversalVisibilityTrackerItem id={subsection.id} group="1"
+                                <VisibilityTrackerItem id={subsection.id} group="1"
                                                                 let:current={currentSubsection}
                                 >
                                     <div class="subsection" class:current-subsection={currentSubsection}
                                     >
                                         <h2>{subsection.id}</h2>
                                     </div>
-                                </UniversalVisibilityTrackerItem>
+                                </VisibilityTrackerItem>
                             {/each}
                         {/if}
                     </section>
-                </UniversalVisibilityTrackerItem>
+                </VisibilityTrackerItem>
             {/each}
         </div>
 
-    </UniversalVisibilityTracker>
+    </VisibilityTracker>
 
 </div>
 

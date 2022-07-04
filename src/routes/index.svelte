@@ -1,52 +1,65 @@
-<!--suppress HtmlUnknownAttribute -->
 <script>
-    import VisibilityTrackerTitle from "../lib/components/VisibilityTrackerTitle.svelte";
+    import VisibilityTracker from "../lib/components/VisibilityTracker.svelte";
+    import VisibilityTrackerLink from "../lib/components/VisibilityTrackerLink.svelte";
     import VisibilityTrackerItem from "../lib/components/VisibilityTrackerItem.svelte";
     import {data} from "../lib/data/data.js";
-    import VisibilityTracker from "../lib/components/VisibilityTracker.svelte";
 </script>
 
-<VisibilityTracker items={data}>
+
+<VisibilityTracker>
 
     <ul>
-        <VisibilityTrackerTitle let:item let:current let:percentage>
-            <li class:current-title={current}
-            style:font-weight="{percentage*400+400}">
-                <a href="#{item.id}">
-                    <span>{item.title}</span> - {percentage}
-                </a>
-            </li>
-        </VisibilityTrackerTitle>
+        {#each data as d}
+            <VisibilityTrackerLink
+                    id={d.id}
+                    let:isIntersecting
+                    let:percentage
+                    let:current
+            >
+                <li
+                        class:current-link={current}
+                >
+                    <a href="#{d.id}">{d.title}</a>
+                </li>
+            </VisibilityTrackerLink>
+        {/each}
     </ul>
 
     <div id="items">
-        <VisibilityTrackerItem let:item let:current let:percentage>
-            <div id={item.id}
-                 class="item"
-                 class:current-item={current}
+        {#each data as d}
+            <VisibilityTrackerItem
+                    id={d.id}
+                    let:isIntersecting
+                    let:percentage
+                    let:current
             >
-                <h1>
-                    {item.title} - <span style="font-weight: normal">{percentage}</span>
-                </h1>
-                <p>
-                    {item.content}
-                </p>
-            </div>
-        </VisibilityTrackerItem>
+                <div class="item"
+                     class:current-item={current}
+                >
+                    <h1>
+                        {d.title}
+                    </h1>
+                    <h2>isIntersecting: <span>{isIntersecting}</span></h2>
+                    <h2>percentage: <span>{percentage}</span></h2>
+                    <h2>current: <span>{current}</span></h2>
+                    <p>
+                        {d.content}
+                    </p>
+                </div>
+            </VisibilityTrackerItem>
+        {/each}
     </div>
 
 </VisibilityTracker>
 
 
 <style>
-
     ul {
         list-style: none;
         position: fixed;
         top: 0;
         left: 0;
-        margin: 0;
-        margin-left: var(--main-nav-width);
+        margin: 0 0 0 var(--main-nav-width);
         width: var(--sub-nav-width);
         padding: 2rem;
     }
@@ -56,7 +69,7 @@
         padding: .5rem;
     }
 
-    .current-title {
+    .current-link {
         border-left: 5px solid black;
     }
 
@@ -83,4 +96,13 @@
     .current-item {
         background: #f0f5f1;
     }
+
+    h2 {
+        margin: 0 0 .5rem 0;
+        font-size: 1.1rem;
+    }
+    h2 span {
+        color: teal;
+    }
+
 </style>

@@ -5,9 +5,7 @@
 
     const links = [
         ['/', 'Basic'],
-        ['/sections/', 'Sections'],
-        ['/universal/', 'Universal']
-
+        ['/subsections/', 'SubSections'],
     ]
 
 </script>

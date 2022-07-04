@@ -13,4 +13,4 @@
     $: current = $maxPercentageIds[group]?.includes(id) ?? false
 </script>
 
-    <slot {percentage} {current}/>
+    <slot {percentage} {current} {isIntersecting}/>
