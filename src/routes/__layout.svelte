@@ -1,3 +1,7 @@
+<script context="module">
+  export const prerender = false;
+</script>
+
 <script>
     import '../app.css'
     import {base} from '$app/paths'
@@ -11,10 +15,11 @@
         ['/subsections/', 'SubSections'],
     ]
 
-    console.log($page.url)
+    // console.log($page.url)
 </script>
 
 <nav>
+    {$page.url.pathname}
     <ul>
         <li>
             <a href="https://github.com/Corrl/svelte-intersection-tracker">
