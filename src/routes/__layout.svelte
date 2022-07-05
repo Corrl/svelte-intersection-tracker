@@ -1,7 +1,3 @@
-<script context="module">
-  export const prerender = false;
-</script>
-
 <script>
     import '../app.css'
     import {base} from '$app/paths'
@@ -15,15 +11,12 @@
         ['/subsections/', 'SubSections'],
     ]
 
-    // console.log($page.url)
 </script>
 
 <nav>
-    {$page.url.pathname}
     <ul>
         <li>
             <a href="https://github.com/Corrl/svelte-intersection-tracker">
-                <GitHubMark /><br>
                 Svelte<br>
                 Intersection<br>
                 Tracker<br>
@@ -31,13 +24,18 @@
         </li>
         {#each links as [href, text]}
             <li
-                    class:current="{`${$page.url.pathname}` === href}"
+                    class:current="{`${$page.url.pathname}` === `${base}${href}`}"
             >
                 <a href="{base}{href}">
                     {text}
                 </a>
             </li>
         {/each}
+        <li>
+            <a href="https://github.com/Corrl/svelte-intersection-tracker">
+                <GitHubMark />
+            </a>
+        </li>
     </ul>
 </nav>
 
@@ -67,7 +65,8 @@
 
     li:first-child a {
         font-weight: 800;
-        /*font-size: 1.05rem;*/
+        font-size: 1.05rem;
+        line-height: 1.3;
     }
 
     a {
