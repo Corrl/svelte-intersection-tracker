@@ -4,18 +4,27 @@ By using the [Intersection Observer API](https://developer.mozilla.org/en-US/doc
 this Svelte Component(set) enables tracking of the following options
 
 - **isIntersecting**
-- **percentage** - Math.max(visible % of element, % element is taking up of viewport)
+- **percentage** - Math.max(% visible of element, % element is taking up of viewport)
 - **current** - elements with highest percentage
 
 ## Demo
 
 https://corrl.github.io/svelte-intersection-tracker/
 
+| :exclamation: NOTICE                                                                                                                                                            |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The component uses `entry.rootBound` which seems to be unavailable when sandboxed, so unfortunately it's not possible to make an example using `percentage/current` in the REPL |
+
+## Installation
+
+```npm i svelte-intersection-tracker```
+
 ## Usage
 
 ### Structure
 
 ```html
+import {IntersectionTracker, IntersectionTrackerLink, IntersectionTrackerItem} from 'svelte-intersection-tracker'
 
 <IntersectionTracker options={{...}}>
     ...
@@ -44,6 +53,7 @@ https://corrl.github.io/svelte-intersection-tracker/
 ### Example
 
 ```html
+import {IntersectionTracker, IntersectionTrackerLink, IntersectionTrackerItem} from 'svelte-intersection-tracker'
 
 <IntersectionTracker>
 
@@ -113,3 +123,54 @@ https://corrl.github.io/svelte-intersection-tracker/
 | let:percentage     | `number`  | `0`       | Value between 0 and 1 representing the higher value of either the visible percentage of the elements area or the percentage the element is taking up of the viewport<br/>0.2 => Either 20% of element visible or element fills 20% of viewport |
 | let:current        | `boolean` | `false`   | True if element has highest percentage in own group. May be true for multiple elements if they share the same percentage, e.g. 1 when 100% visible.                                                                                            |
 
+## Examples
+
+```html
+
+<IntersectionTrackerLink
+        id={d.id}
+        let:percentage
+>
+    <li
+            style:font-weight="{400+400*percentage}"
+            style:font-size="{1+.4*percentage}rem"
+    >
+        <a href="#{d.id}">{d.title}</a>
+    </li>
+</IntersectionTrackerLink>
+```
+
+```html
+
+<IntersectionTrackerItem
+        id={d.id}
+        let:percentage
+>
+    <div class="item"
+         style:background="rgba(255,255,255,{percentage})"
+         style:box-shadow="{4*percentage}px {4*percentage}px {20*percentage+10}px {5*percentage}px rgba(113,127,132,{percentage*.4})"
+    >
+        ...
+    </div>
+</IntersectionTrackerItem>
+```
+
+```html
+
+<IntersectionTrackerLink
+        id={d.id}
+        let:percentage
+        let:current
+>
+    <li
+            style:color="hsl({percentage*70+155}, 50%, 50%)"
+    >
+        <div class="link-marker"
+             class:current-link={current}
+        >
+            ★
+        </div>
+        <a href="#{d.id}">{d.title}</a>
+    </li>
+</IntersectionTrackerLink>
+```

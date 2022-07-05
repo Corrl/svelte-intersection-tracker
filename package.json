@@ -1,28 +1,37 @@
 {
-	"name": "svelte-intersection-tracker",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"package": "svelte-kit package",
-		"preview": "svelte-kit preview",
-		"prepare": "svelte-kit sync"
-	},
-	"files": [
-		"./lib/IntersectionTracker.svelte",
-		"./lib/IntersectionTrackerLink.svelte",
-		"./lib/IntersectionTrackerItem.svelte",
-		"./lib/key.js"
-	],
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/adapter-static": "^1.0.0-next.34",
-		"@sveltejs/kit": "next",
-		"svelte": "^3.44.0",
-		"svelte2tsx": "^0.5.11"
-	},
-	"type": "module",
-	"dependencies": {
-	},
-	"license" : "MIT"
+  "name": "svelte-intersection-tracker",
+  "version": "0.0.13",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "prepare": "svelte-kit sync"
+  },
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "key.js",
+    "IntersectionTracker.svelte",
+    "IntersectionTrackerLink.svelte",
+    "IntersectionTrackerItem.svelte"
+  ],
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-static": "^1.0.0-next.34",
+    "@sveltejs/kit": "next",
+    "svelte": "^3.44.0",
+    "svelte2tsx": "^0.5.11"
+  },
+  "type": "module",
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Corrl/svelte-intersection-tracker"
+  },
+  "homepage": "https://corrl.github.io/svelte-intersection-tracker/",
+  "license": "MIT"
 }

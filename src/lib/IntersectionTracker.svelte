@@ -52,7 +52,6 @@
             threshold: options.threshold ?? Array.from({length: fineness}, (_, i) => i / fineness).concat(1) // last item sometimes doesn't trigger with 1? >> better .99?
         }
 
-        console.log(fullOptions)
         function setRoot(root) {
             return root instanceof Element && root
                 || typeof root === 'string' && document.getElementById(root)
@@ -75,9 +74,13 @@
             const elem = entry.target
             const id = elem.id
             const group = elem.dataset.group
+
             $intersecting[group][id] = entry.isIntersecting
+
             const percentageOfElement = entry.intersectionRatio
-            const percentageOfRoot = entry.intersectionRect.height / entry.rootBounds.height
+            if(!entry.intersectionRect) console.error('entry.intersectionRect not available - running sandboxed?')
+            if(!entry.rootBounds) console.error('entry.rootBounds not available - running sandboxed?')
+            const percentageOfRoot = entry.intersectionRect?.height / entry.rootBounds?.height
             $percentages[group][id] = Math.max(round(percentageOfElement), round(percentageOfRoot))
         })
     }

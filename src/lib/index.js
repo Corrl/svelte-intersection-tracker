@@ -1,3 +1,9 @@
-export IntersectionTracker from './IntersectionTracker.svelte'
-export IntersectionTrackerLink from './IntersectionTrackerLink.svelte'
-export IntersectionTrackerItem from './IntersectionTrackerItem.svelte'
+import IntersectionTracker from './IntersectionTracker.svelte'
+import IntersectionTrackerLink from './IntersectionTrackerLink.svelte'
+import IntersectionTrackerItem from './IntersectionTrackerItem.svelte'
+
+export {
+    IntersectionTracker,
+    IntersectionTrackerLink,
+    IntersectionTrackerItem
+}

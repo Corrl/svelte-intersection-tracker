@@ -32,7 +32,7 @@
                         let:percentage
                 >
                     <div class="item"
-                         style:background="rgba(255,255,255,{percentage*.5+.3})"
+                         style:background="rgba(255,255,255,{percentage})"
                          style:box-shadow="{4*percentage}px {4*percentage}px {20*percentage+10}px {5*percentage}px rgba(113,127,132,{percentage*.4})"
                     >
                         <h1>

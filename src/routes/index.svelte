@@ -61,7 +61,7 @@
         left: 0;
         margin: 0 0 0 var(--main-nav-width);
         width: var(--sub-nav-width);
-        padding: 2rem;
+        padding: 4rem 0 2rem 4rem;
     }
 
     li {

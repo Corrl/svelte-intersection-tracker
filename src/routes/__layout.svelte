@@ -2,6 +2,7 @@
     import '../app.css'
     import {base} from '$app/paths'
     import {page} from '$app/stores';
+    import GitHubMark from "../lib/GitHubMark.svelte";
 
     const links = [
         ['/', 'Basic'],
@@ -14,11 +15,19 @@
 
 <nav>
     <ul>
+        <li>
+            <a href="https://github.com/Corrl/svelte-intersection-tracker">
+                <GitHubMark /><br>
+                Svelte<br>
+                Intersection<br>
+                Tracker<br>
+            </a>
+        </li>
         {#each links as [href, text]}
-            <li>
-                <a href="{base}{href}"
-                   class:open={`${base}${$page.url.pathname}` === href}
-                >
+            <li
+                    class:current="{`${base}${$page.url.pathname}` === href}"
+            >
+                <a href="{base}{href}">
                     {text}
                 </a>
             </li>
@@ -46,8 +55,13 @@
     }
 
     li {
+        position: relative;
         margin: .4rem 0;
+    }
 
+    li:first-child a {
+        font-weight: 800;
+        /*font-size: 1.05rem;*/
     }
 
     a {
@@ -55,7 +69,7 @@
         color: inherit;
         text-decoration: none;
         font-weight: bold;
-        padding: .4rem .6rem;
+        padding: .4rem .4rem;
         border-radius: .2rem;
     }
 
@@ -63,8 +77,15 @@
         text-decoration: underline;
     }
 
-    .open {
-        background: black;
-        color: white;
+    .current {
+        /*text-decoration: underline;*/
+    }
+
+    .current::before {
+        content: '●';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(-100%, -50%);
     }
 </style>
