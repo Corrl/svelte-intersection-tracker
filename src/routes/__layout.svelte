@@ -11,6 +11,7 @@
         ['/subsections/', 'SubSections'],
     ]
 
+    console.log($page.url)
 </script>
 
 <nav>
