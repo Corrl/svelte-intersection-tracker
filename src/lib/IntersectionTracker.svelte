@@ -1,7 +1,7 @@
 <!--suppress JSUnusedLocalSymbols -->
 <script>
     import {onMount, setContext} from 'svelte'
-    import {key} from '../key.js'
+    import {key} from './key.js'
 
     import {derived, writable} from "svelte/store";
 

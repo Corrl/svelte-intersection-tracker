@@ -1,5 +1,5 @@
 {
-	"name": "svelte-visibility-tracker",
+	"name": "svelte-intersection-tracker",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
@@ -8,11 +8,21 @@
 		"preview": "svelte-kit preview",
 		"prepare": "svelte-kit sync"
 	},
+	"files": [
+		"./lib/IntersectionTracker.svelte",
+		"./lib/IntersectionTrackerLink.svelte",
+		"./lib/IntersectionTrackerItem.svelte",
+		"./lib/key.js"
+	],
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-static": "^1.0.0-next.34",
 		"@sveltejs/kit": "next",
-		"svelte": "^3.44.0"
+		"svelte": "^3.44.0",
+		"svelte2tsx": "^0.5.11"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+	},
+	"license" : "MIT"
 }

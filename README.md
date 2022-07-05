@@ -1,6 +1,7 @@
 # Svelte Intersection Tracker
 
-By using the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) this Svelte Component(set) enables tracking of the following options
+By using the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+this Svelte Component(set) enables tracking of the following options
 
 - **isIntersecting**
 - **percentage** - Math.max(visible % of element, % element is taking up of viewport)
@@ -19,21 +20,19 @@ https://corrl.github.io/svelte-intersection-tracker/
 <IntersectionTracker options={{...}}>
     ...
 
-    <IntersectionTrackerLink
-            id={data.id}
-            let:isIntersecting
-            let:percentage
-            let:current>
+    <IntersectionTrackerLink id={data.id}
+                             let:isIntersecting
+                             let:percentage
+                             let:current>
         ...
     </IntersectionTrackerLink>
 
     ...
 
-    <IntersectionTrackerItem
-            id={data.id}
-            let:isIntersecting
-            let:percentage
-            let:current>
+    <IntersectionTrackerItem id={data.id}
+                             let:isIntersecting
+                             let:percentage
+                             let:current>
         ...
     </IntersectionTrackerItem>
 
@@ -42,7 +41,7 @@ https://corrl.github.io/svelte-intersection-tracker/
 </IntersectionTracker>
 ```
 
-### Basic - current
+### Example
 
 ```html
 
@@ -88,9 +87,9 @@ https://corrl.github.io/svelte-intersection-tracker/
 
 | Name               | Type                         | Default              | Description                                                                                                                                                                                                                                                                           | Required |
 |--------------------|------------------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| options.root       | `HTMLElement`&#124; `string` | `window`             | Either reference to element or id as string. The element that is used as the viewport for checking visibility of the target. Must be the ancestor of the target.                                                                                                                                                                                                                                         | `false`  |
+| options.root       | `HTMLElement`&#124; `string` | `window`             | Either reference to element or id as string. The element that is used as the viewport for checking visibility of the target. Must be the ancestor of the target.                                                                                                                      | `false`  |
 | options.rootMargin | `string`                     | `0px`                | Margin around the root. Can have values similar to the CSS margin property, e.g. "10px 20px 30px 40px" (top, right, bottom, left). [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#rootmargin)                                                       | `false`  |
-| options.fineness   | `number`                     | `100`                  | Based on the value an array for `options.threshold`is generated, see examples below                                                                                                                                                                                                   | `false`  |
+| options.fineness   | `number`                     | `100`                  | Based on `fineness` an array for `options.threshold`is generated, see examples below                                                                                                                                                                                                  | `false`  |
 | options.threshold  | `number` &#124;  `number[]`        | `[0, 0.01, 0.02, 0.03, ..., 0.97, 0.98, 0.99, 1]` | Overwrites `fineness` if provided. Either a single number or an array of numbers which indicate at what percentage of the target's visibility the observer's callback should be executed. [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#threshold) | `false`  |
 
 | fineness      |threshold|
@@ -101,10 +100,10 @@ https://corrl.github.io/svelte-intersection-tracker/
 
 ### Props `<IntersectionTrackerLink>/<IntersectionTrackerItem>`
 
-| Name  | Type     | Default | Description                                                              | Required |
-|-------|----------|---------|--------------------------------------------------------------------------|----------|
-| id    | `string` | -       | Tracked items will be wrapped in a div with the provided id              | `true`   |
-| group | `number` | `0`       | By defining groups items can be watched seperately e.g. with subsections | `false`  |
+| Name  | Type     | Default | Description                                                                      | Required |
+|-------|----------|---------|----------------------------------------------------------------------------------|----------|
+| id    | `string` | -       | Tracked items will be wrapped in a div with the provided id                      | `true`   |
+| group | `number` | `0`       | By defining groups items can be watched seperately e.g. for tracking subsections | `false`  |
 
 ### let:props
 

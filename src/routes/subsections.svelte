@@ -1,7 +1,7 @@
 <script>
-    import IntersectionTracker from "../lib/components/IntersectionTracker.svelte";
-    import IntersectionTrackerLink from "../lib/components/IntersectionTrackerLink.svelte";
-    import IntersectionTrackerItem from "../lib/components/IntersectionTrackerItem.svelte";
+    import IntersectionTracker from "../lib/IntersectionTracker.svelte";
+    import IntersectionTrackerLink from "../lib/IntersectionTrackerLink.svelte";
+    import IntersectionTrackerItem from "../lib/IntersectionTrackerItem.svelte";
 
     const sections = [
         {id: 'Section 1'},

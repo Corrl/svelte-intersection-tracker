@@ -1,7 +1,7 @@
 <!--suppress JSUnusedAssignment -->
 <script>
     import {getContext} from 'svelte'
-    import {key} from '../key.js'
+    import {key} from './key.js'
 
     const {observer, intersecting, percentages, maxPercentageIds} = getContext(key)
 

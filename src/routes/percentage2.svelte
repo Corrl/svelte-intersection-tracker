@@ -1,8 +1,8 @@
 <script>
-    import IntersectionTracker from "../lib/components/IntersectionTracker.svelte";
-    import IntersectionTrackerLink from "../lib/components/IntersectionTrackerLink.svelte";
-    import IntersectionTrackerItem from "../lib/components/IntersectionTrackerItem.svelte";
-    import {data} from "../lib/data/data.js";
+    import IntersectionTracker from "../lib/IntersectionTracker.svelte";
+    import IntersectionTrackerLink from "../lib/IntersectionTrackerLink.svelte";
+    import IntersectionTrackerItem from "../lib/IntersectionTrackerItem.svelte";
+    import {data} from "../lib/data.js";
 </script>
 
 <IntersectionTracker>
