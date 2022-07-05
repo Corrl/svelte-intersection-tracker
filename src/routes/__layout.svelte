@@ -25,7 +25,7 @@
         </li>
         {#each links as [href, text]}
             <li
-                    class:current="{`${base}${$page.url.pathname}` === href}"
+                    class:current="{`${$page.url.pathname}` === href}"
             >
                 <a href="{base}{href}">
                     {text}

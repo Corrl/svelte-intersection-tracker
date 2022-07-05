@@ -1,6 +1,6 @@
 {
   "name": "svelte-intersection-tracker",
-  "version": "0.0.13",
+  "version": "1.0.0",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
