@@ -13,11 +13,13 @@ https://corrl.github.io/svelte-intersection-tracker/
 
 | :exclamation: NOTICE                                                                                                                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| The component uses `entry.rootBound` which seems to be unavailable when sandboxed, so unfortunately it's not possible to make an example using `percentage/current` in the REPL |
+| The component uses `entry.rootBound` which seems to be unavailable when sandboxed, so unfortunately it's not possible to make an example in the REPL |
 
 ## Installation
 
-```npm i svelte-intersection-tracker```
+```sh
+npm i svelte-intersection-tracker
+```
 
 ## Usage
 
