@@ -5,15 +5,15 @@ this Svelte Component(set) enables tracking of the following options
 
 - **isIntersecting**
 - **percentage** - Math.max(% visible of element, % element is taking up of viewport)
-- **current** - elements with highest percentage
+- **current** - elements with the highest percentage
 
 ## Demo
 
 https://corrl.github.io/svelte-intersection-tracker/
 
-| :exclamation: NOTICE                                                                                                                                                            |
-|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| The component uses `entry.rootBound` which seems to be unavailable when sandboxed, so unfortunately it's not possible to make an example in the REPL |
+| :exclamation: NOTICE                                                                                                                                  |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------|
+| The component uses `entry.rootBounds` which seems to be unavailable when sandboxed, so unfortunately it's not possible to make an example in the REPL |
 
 ## Installation
 
@@ -65,7 +65,9 @@ import {IntersectionTracker, IntersectionTrackerLink, IntersectionTrackerItem} f
                                  let:current
         >
             <li class:current-link={current}>
-                <a href="#{d.id}">{d.title}</a>
+                <a href="#{d.id}">
+                    {d.title}
+                </a>
             </li>
         </IntersectionTrackerLink>
         {/each}
@@ -114,7 +116,7 @@ import {IntersectionTracker, IntersectionTrackerLink, IntersectionTrackerItem} f
 
 | Name  | Type     | Default | Description                                                                      | Required |
 |-------|----------|---------|----------------------------------------------------------------------------------|----------|
-| id    | `string` | -       | Tracked items will be wrapped in a div with the provided id                      | `true`   |
+| id    | `string` | -       | Tracked items will be wrapped in a div with the provided id<br/>stylable via `.svelte-intersection-tracker-item` | `true`   |
 | group | `number` | `0`       | By defining groups items can be watched seperately e.g. for tracking subsections | `false`  |
 
 ### let:props
@@ -137,7 +139,9 @@ import {IntersectionTracker, IntersectionTrackerLink, IntersectionTrackerItem} f
             style:font-weight="{400+400*percentage}"
             style:font-size="{1+.4*percentage}rem"
     >
-        <a href="#{d.id}">{d.title}</a>
+        <a href="#{d.id}">
+            {d.title}
+        </a>
     </li>
 </IntersectionTrackerLink>
 ```
